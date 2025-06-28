@@ -1,7 +1,19 @@
-let temperatures: number[] = [20, 25, 30];
-// temperatures.push('hot');
+let car: { brand: string; year: number } = {
+  brand: 'toyota',
+  year: 2020,
+  // color: 'blue',
+};
+car.brand = 'ford';
+// car.color = 'blue';
 
-let colors: string[] = ['red', 'green', 'blue'];
-// colors.push(true);
+let car1: { brand: string; year: number } = {
+  brand: 'audi',
+  year: 2022,
+};
 
-let mixedArray: (number | string)[] = [1, 'two', 3];
+let book = { title: 'book', cost: 20 };
+let pen = { title: 'pen', cost: 10 };
+let notebook = { title: 'notebook' };
+
+let items: { readonly title: string; cost?: number }[] = [book, pen, notebook];
+// items[0].title = 'new book';
