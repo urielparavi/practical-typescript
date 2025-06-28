@@ -1,12 +1,16 @@
-function createStudent(student: { id: number; name: string }): void {
-  console.log(`Welcome to this example ${student.name.toUpperCase()}!!!`);
+function processData(
+  input: string | number,
+  config: { reverse: boolean } = { reverse: false }
+): string | number {
+  if (typeof input === 'number') {
+    return input * input;
+  } else {
+    return config.reverse
+      ? input.toUpperCase().split('').reverse().join('')
+      : input.toUpperCase();
+  }
 }
 
-const newStudent = {
-  id: 5,
-  name: 'anna',
-  email: 'anna@gmail.com',
-};
-
-createStudent(newStudent); // Welcome to this example ANNA!!!
-createStudent({ id: 1, name: 'bob', email: 'bobo@gmail.com' }); // Welcome to this example BOB!!!
+console.log(processData(10));
+console.log(processData('Hello'));
+console.log(processData('Hello', { reverse: true }));
