@@ -1,14 +1,13 @@
-let awesomeName = 'shakeAndBake';
-awesomeName = 'something';
-awesomeName = awesomeName.toUpperCase();
-console.log(awesomeName);
+let greeting: string = 'Hello, Typescript!';
+greeting = greeting.toUpperCase();
 
-// awesomeName = 20;
+let age: number = 25;
+age = age + 5;
 
-let amount = 20;
-amount = 12 - 1;
-// amount = 'pants';
+let isAdult: boolean = age >= 18;
+isAdult = !isAdult;
+console.log(isAdult);
 
-let isAwesome = true;
-isAwesome = false;
-// isAwesome = 'shakeAndBake';
+// greeting = 10;
+// age = 'thirty';
+// isAdult = 'yes';
