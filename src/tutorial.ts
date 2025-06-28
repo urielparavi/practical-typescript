@@ -11,3 +11,5 @@ console.log(isAdult);
 // greeting = 10;
 // age = 'thirty';
 // isAdult = 'yes';
+
+console.log(greeting, age, isAdult);
