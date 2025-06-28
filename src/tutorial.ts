@@ -1,6 +1,10 @@
-function logMessage(message: string): void {
-  console.log(message);
-  // return 'Hello world';
+function processInput(input: string | number) {
+  if (typeof input === 'number') {
+    console.log(input * 2);
+  } else {
+    console.log(input.toLocaleLowerCase());
+  }
 }
 
-logMessage('Hello Typescript');
+processInput(10);
+processInput('Hello');
