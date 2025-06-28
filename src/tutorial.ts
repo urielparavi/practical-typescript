@@ -1,14 +1,7 @@
-const books = ['1984', 'Brave New World', 'Fahrenheit 451'];
+let discount: number | string = 20;
+discount = '20%';
+// discount = true;
 
-let foundBook: string | undefined;
-
-for (let book of books) {
-  if (book === '1984') {
-    foundBook = book;
-    // foundBook.length
-    foundBook = foundBook.toUpperCase();
-    break;
-  }
-}
-
-console.log(foundBook?.length);
+let orderStatus: 'processing' | 'shipped' | 'delivered' = 'processing';
+orderStatus = 'shipped';
+// orderStatus = 'cancelled';
