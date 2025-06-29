@@ -1,22 +1,58 @@
-interface Computer {
-  readonly id: number;
-  brand: string;
-  ram: number;
-  upgradeRam(increase: number): number;
-  storage?: number;
+interface Person {
+  name: string;
+  getDetails(): string;
 }
 
-const laptop: Computer = {
-  id: 1,
-  brand: 'random brand',
-  ram: 8,
-  upgradeRam(amount) {
-    this.ram += amount;
-    return this.ram;
+interface DogOwner {
+  dogName: string;
+  getDogDetails(): string;
+}
+
+interface Person {
+  age: number;
+}
+
+const person: Person = {
+  name: 'john',
+  age: 30,
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}`;
   },
 };
 
-laptop.storage = 256;
-console.log(laptop.upgradeRam(4));
+interface Employee extends Person {
+  employeeId: number;
+}
 
-console.log(laptop);
+const employee: Employee = {
+  name: 'jane',
+  age: 28,
+  employeeId: 123,
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}, Employee ID: ${this.employeeId}`;
+  },
+};
+
+// console.log(person.getDetails());
+console.log(employee.getDetails());
+
+interface Manager extends Person, DogOwner {
+  managePeople(): void;
+}
+
+const manager: Manager = {
+  name: 'bob',
+  age: 35,
+  dogName: 'rex',
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  },
+  getDogDetails() {
+    return `Name: ${this.name}`;
+  },
+  managePeople() {
+    console.log('Managing people..');
+  },
+};
+
+manager.managePeople();
