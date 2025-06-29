@@ -1,9 +1,15 @@
-const propName = 'age';
+interface Book {
+  readonly isbn: number;
+  title: string;
+  author: string;
+  genre?: string;
+}
 
-type Animal = {
-  [propName]: number;
+const deepWork: Book = {
+  isbn: 123,
+  title: 'deep work',
+  author: 'cal newport',
+  // genre: 'self-help',
 };
 
-let tiger: Animal = { [propName]: 5 };
-
-console.log(tiger);
+// deepWork.isbn = 'some value';
