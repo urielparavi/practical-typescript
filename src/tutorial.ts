@@ -1,24 +1,21 @@
-type Employee = { id: number; name: string; department: string };
-type Manager = { id: number; name: string; employees: Employee[] };
+type Book = { id: number; name: string; price: number };
+type DiscountedBook = Book & { discount: number };
 
-type Staff = Employee | Manager;
+const book1: Book = {
+  id: 1,
+  name: 'how to cook a dragon',
+  price: 15,
+};
 
-function printStaffDetails(staff: Staff): void {
-  if ('employees' in staff) {
-    console.log(
-      `${staff.name} is an manager on ${staff.employees.length} employees`
-    );
-  } else {
-    console.log(
-      `${staff.name} is an employee in the ${staff.department} deparatment`
-    );
-  }
-}
+const book2: Book = {
+  id: 2,
+  name: 'how secret life of unicorns',
+  price: 18,
+};
 
-const alice: Employee = { id: 1, name: 'alice', department: 'Sales' };
-const steve: Employee = { id: 2, name: 'steve', department: 'HR' };
-
-const bob: Manager = { id: 3, name: 'bobo', employees: [alice, steve] };
-
-printStaffDetails(alice);
-printStaffDetails(bob);
+const discountedBook: DiscountedBook = {
+  id: 3,
+  name: 'Gnomes vs. Goblins: The Ultimate Guide',
+  price: 25,
+  discount: 0.15,
+};
