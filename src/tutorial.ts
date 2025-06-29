@@ -1,15 +1,22 @@
-let person: [string, number] = ['john', 25];
-
-let date: readonly [number, number, number] = [12, 17, 2001];
-// date.push(34);
-// console.log(date);
-
-function getPerson(): [string, number] {
-  return ['john', 25];
+enum ServerResponseStatus {
+  Success = 200,
+  Error = 'Error',
 }
 
-let randomPerson = getPerson();
-console.log(randomPerson[0]);
-console.log(randomPerson[1]);
+console.log(ServerResponseStatus);
 
-let susan: [string, number?] = ['susan'];
+interface ServerResponse {
+  result: ServerResponseStatus;
+  data: string[];
+}
+
+function getServerResponse(): ServerResponse {
+  return {
+    result: ServerResponseStatus.Success,
+    data: ['first item', 'second item'],
+  };
+}
+
+const response: ServerResponse = getServerResponse();
+
+console.log(response);
