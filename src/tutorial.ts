@@ -19,3 +19,20 @@ function createUser(user: User): User {
 
 // { id: 1, name: 'john', isActive: true }
 // createUser(john); // Hello there john !!!
+
+type StringOrNumber = string | number;
+
+let value: StringOrNumber;
+value = 'hello';
+value = 1234;
+
+type Theme = 'light' | 'dark';
+let theme: Theme;
+theme = 'dark';
+theme = 'light';
+
+function setTheme(t: Theme) {
+  theme = t;
+}
+
+setTheme('dark');
