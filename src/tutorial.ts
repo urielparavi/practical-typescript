@@ -1,38 +1,24 @@
-type User = { id: number; name: string; isActive: boolean };
+type Employee = { id: number; name: string; department: string };
+type Manager = { id: number; name: string; employees: Employee[] };
 
-const john: User = {
-  id: 1,
-  name: 'john',
-  isActive: true,
-};
-const susan: User = {
-  id: 1,
-  name: 'susan',
-  isActive: false,
-};
+type Staff = Employee | Manager;
 
-function createUser(user: User): User {
-  console.log(`Hello there ${user.name.toUpperCase()} !!!`);
-
-  return user;
+function printStaffDetails(staff: Staff): void {
+  if ('employees' in staff) {
+    console.log(
+      `${staff.name} is an manager on ${staff.employees.length} employees`
+    );
+  } else {
+    console.log(
+      `${staff.name} is an employee in the ${staff.department} deparatment`
+    );
+  }
 }
 
-// { id: 1, name: 'john', isActive: true }
-// createUser(john); // Hello there john !!!
+const alice: Employee = { id: 1, name: 'alice', department: 'Sales' };
+const steve: Employee = { id: 2, name: 'steve', department: 'HR' };
 
-type StringOrNumber = string | number;
+const bob: Manager = { id: 3, name: 'bobo', employees: [alice, steve] };
 
-let value: StringOrNumber;
-value = 'hello';
-value = 1234;
-
-type Theme = 'light' | 'dark';
-let theme: Theme;
-theme = 'dark';
-theme = 'light';
-
-function setTheme(t: Theme) {
-  theme = t;
-}
-
-setTheme('dark');
+printStaffDetails(alice);
+printStaffDetails(bob);
