@@ -1,36 +1,28 @@
-let someValue: any = 'this is a string';
+let unknownValue: unknown;
 
-let strLength: number = (someValue as string).length;
+unknownValue = 'hello';
+unknownValue = [1, 2, 3];
+unknownValue = 42.33455;
 
-type Bird = {
-  name: string;
-};
-
-let birdString = '{"name": "Eagle"}';
-let dogString = '{"breed": "Poodle"}';
-
-let birdObject = JSON.parse(birdString);
-let dogObject = JSON.parse(dogString);
-
-let bird = birdObject as Bird;
-let dog = dogObject as Bird;
-
-console.log(bird.name);
-console.log(dog.name);
-
-enum Status {
-  Pending = 'pending',
-  Declined = 'declined',
+if (typeof unknownValue === 'number') {
+  unknownValue.toFixed(2);
 }
 
-type User = {
-  name: string;
-  status: Status;
-};
+function runSomeCode() {
+  const random = Math.random();
+  if (random < 0.5) {
+    throw new Error('there was error...');
+  } else {
+    throw 'some error';
+  }
+}
 
-// save Status.Pending in the DB as a string
-// retrieve string from the DB
-
-const statusValue = 'pending';
-
-const user: User = { name: 'john', status: statusValue as Status };
+try {
+  runSomeCode();
+} catch (error) {
+  if (error instanceof Error) {
+    console.log(error.message);
+  } else {
+    console.log(error);
+  }
+}
