@@ -1,7 +1,13 @@
 enum ServerResponseStatus {
   Success = 200,
-  Error = 'Error',
+  Error = 500,
 }
+
+Object.values(ServerResponseStatus).forEach((value) => {
+  if (typeof value === 'number') {
+    console.log(value);
+  }
+});
 
 console.log(ServerResponseStatus);
 
