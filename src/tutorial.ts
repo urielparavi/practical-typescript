@@ -1,34 +1,7 @@
-type IncrementAction = {
-  type: 'increment';
-  amount: number;
-  timestamp: number;
-  user: string;
-};
+// let array1: string[] = ['Apple', 'Banana', 'Mango'];
+// let array2: number[] = [1, 2, 3];
+// let array3: boolean[] = [true, false, true];
 
-type DecrementAction = {
-  type: 'decrement';
-  amount: number;
-  timestamp: number;
-  user: string;
-};
-
-type Action = IncrementAction | DecrementAction;
-
-function reducer(state: number, action: Action) {
-  switch (action.type) {
-    case 'increment':
-      return state + action.amount;
-    case 'decrement':
-      return state - action.amount;
-    default:
-      const unexpectedAction: never = action;
-      throw new Error(`Unexpected action: ${unexpectedAction}`);
-  }
-}
-
-const newState = reducer(15, {
-  user: 'john',
-  type: 'increment',
-  amount: 5,
-  timestamp: 123456,
-});
+let array1: Array<string> = ['Apple', 'Banana', 'Mango'];
+let array2: Array<number> = [1, 2, 3];
+let array3: Array<boolean> = [true, false, true];
