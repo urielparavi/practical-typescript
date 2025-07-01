@@ -1,4 +1,17 @@
-const susan = 'susan';
+export function sayHello(name: string): void {
+  console.log(`Hello ${name}`);
+}
 
-let something = 'something';
-ס;
+export let person = 'susan';
+
+export type Student = {
+  name: string;
+  age: number;
+};
+
+const newStudent: Student = {
+  name: 'peter',
+  age: 24,
+};
+
+export default newStudent;
