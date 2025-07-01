@@ -25,4 +25,8 @@ const genericString: GenericInterface<string> = {
   },
 };
 
-// console.log(genericString);
+async function someFunc(): Promise<number> {
+  return 123;
+}
+
+const result = someFunc();
