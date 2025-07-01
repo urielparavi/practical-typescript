@@ -16,7 +16,11 @@ const randomPerson = (): Person => {
     : { name: 'mary', login: () => console.log('Logging in') };
 };
 
-const person = randomPerson();
+// const person = randomPerson();
+const person: Person = {
+  name: 'anna',
+  login: () => console.log('study...'),
+};
 
 function isStudent(person: Person): person is Student {
   // return 'study' in person;
