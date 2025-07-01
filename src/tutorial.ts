@@ -1,4 +1,7 @@
 import newStudent, { sayHello, person, type Student } from './actions';
+// import { someValue } from './example.js';
+
+// console.log(someValue);
 
 sayHello('Typescript');
 
