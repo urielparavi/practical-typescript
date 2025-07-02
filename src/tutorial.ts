@@ -1,37 +1,21 @@
-type Car = {
-  brand: string;
-  model: string;
-};
+// data is located in the data property
 
-const car: Car = {
-  brand: 'ford',
-  model: 'mustang',
-};
+const { data } = axios.get(someUrl);
 
-type Product = {
-  name: string;
-  price: number;
-};
+axios.get<{ name: string }[]>(someUrl);
 
-const product: Product = {
-  name: 'shoes',
-  price: 1.99,
-};
-
-type Student = {
-  name: string;
-  age: number;
-};
-
-const student: Student = {
-  name: 'peter',
-  age: 20,
-};
-
-function printName<T extends { name: string }>(input: T): void {
-  console.log(input.name);
+export class Axios {
+  get<T = any, R = AxiosResponse<T>, D = any>(
+    url: string,
+    config?: AxiosRequestConfig<D>
+  ): Promise<R>;
 }
 
-printName(student);
-printName(product);
-// printName(car);
+export interface AxiosResponse<T = any, D = any> {
+  data: T;
+  status: number;
+  statusText: string;
+  headers: RawAxiosResponseHeaders | AxiosResponseHeaders;
+  config: InternalAxiosRequestConfig<D>;
+  request?: any;
+}
