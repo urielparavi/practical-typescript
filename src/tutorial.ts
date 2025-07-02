@@ -1,28 +1,15 @@
-class Book {
-  private checkedOut: boolean = false;
+interface IPerson {
+  name: string;
+  age: number;
+  greet(): void;
+}
 
-  constructor(readonly title: string, public author: string) {}
-
-  get info() {
-    return `${this.title} by ${this.author}`;
-  }
-
-  private set checkOut(checkedOut: boolean) {
-    this.checkedOut = checkedOut;
-  }
-  get checkOut() {
-    return this.checkedOut;
-  }
-
-  public get someInfo() {
-    this.checkOut = true;
-    return `${this.title} by ${this.author}`;
+class Person implements IPerson {
+  constructor(public name: string, public age: number) {}
+  greet(): void {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old`);
   }
 }
 
-const deepWork = new Book('deep work ', 'cal newport');
-console.log(deepWork.info); // deep work  by cal newport
-// deepWork.checkOut = true;
-console.log(deepWork); // {checkedOut: false, title: 'deep work ', author: 'cal newport'}
-console.log(deepWork.someInfo); // deep work  by cal newport
-console.log(deepWork.checkOut); // true
+const hipster = new Person('Slim shady', 100);
+hipster.greet();
