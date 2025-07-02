@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ES2022", // Transpile TypeScript code to modern ES2022 JavaScript
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "module": "ESNext", // Use the latest ECMAScript module system (suitable for bundlers like Vite)
-    "lib": ["ES2022", "DOM", "DOM.Iterable"], // Include standard library types for ES2022 + browser environment (e.g. DOM APIs)
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler", // Use module resolution optimized for modern bundlers (like Vite, Webpack, etc.)
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true, // Do not output any .js or declaration files — used when a bundler handles output
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
     /* Linting */
-    "strict": true, // Enable all strict type-checking options (recommended for safety)
+    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-    // "allowJs": true
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"] // Only include files from the "src" folder for compilation
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
