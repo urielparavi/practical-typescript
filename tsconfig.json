@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ES2022", // Transpile TypeScript code to modern ES2022 JavaScript
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext", // Use the latest ECMAScript module system (suitable for bundlers like Vite)
+    "lib": ["ES2022", "DOM", "DOM.Iterable"], // Include standard library types for ES2022 + browser environment (e.g. DOM APIs)
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "bundler", // Use module resolution optimized for modern bundlers (like Vite, Webpack, etc.)
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "noEmit": true,
+    "noEmit": true, // Do not output any .js or declaration files — used when a bundler handles output
     /* Linting */
-    "strict": true,
+    "strict": true, // Enable all strict type-checking options (recommended for safety)
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
@@ -21,5 +21,5 @@
     "noUncheckedSideEffectImports": true
     // "allowJs": true
   },
-  "include": ["src"]
+  "include": ["src"] // Only include files from the "src" folder for compilation
 }
