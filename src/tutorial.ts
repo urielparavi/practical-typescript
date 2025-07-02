@@ -6,6 +6,7 @@ type Tour = {
   info: string;
   image: string;
   price: string;
+  something: boolean;
 };
 
 async function fetchData(url: string): Promise<Tour[]> {
@@ -28,5 +29,5 @@ async function fetchData(url: string): Promise<Tour[]> {
 
 const tours = await fetchData(url);
 tours.map((tour) => {
-  console.log(tour.name);
+  console.log(tour);
 });
