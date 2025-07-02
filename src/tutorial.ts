@@ -1,5 +1,5 @@
 class Book {
-  title: string;
+  readonly title: string;
   author: string;
   checkedOut: boolean = false;
   // checkedOut: false;
@@ -11,6 +11,8 @@ class Book {
 }
 
 const deepWork = new Book('deep work ', 'cal newport');
-deepWork.checkedOut = true;
 
-console.log(deepWork.checkedOut); // {title: 'deep work ', author: 'cal newport'}
+// deepWork.title = 'bla bla';
+console.log(deepWork.title); // {title: 'deep work ', author: 'cal newport'}
+
+console.log(deepWork); // {title: 'deep work ', author: 'cal newport'}
