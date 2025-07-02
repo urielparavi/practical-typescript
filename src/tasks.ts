@@ -8,35 +8,49 @@ type Task = {
   isCompleted: boolean;
 };
 
-const task: Task[] = [];
+const tasks: Task[] = loadTasks();
 
-// Since this is a named function used as an event handler,
-// we must explicitly annotate the type of the 'event' parameter.
-// TypeScript cannot infer it automatically in this case,
-// unlike with inline functions passed directly to addEventListener,
-// where the event type is inferred from the context.
-function createTask(event: SubmitEvent) {
+tasks.forEach(renderTask);
+
+function loadTasks(): Task[] {
+  const storedTasks = localStorage.getItem('tasks');
+  return storedTasks ? JSON.parse(storedTasks) : [];
+}
+
+taskForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   const taskDescription = formInput?.value;
   if (taskDescription) {
-    console.log(taskDescription);
+    const task: Task = {
+      description: taskDescription,
+      isCompleted: false,
+    };
+    // Add task to list
+    addTask(task);
+
+    // Render tasks
+    renderTask(task);
+
+    // Update local storage
+    updateStorage();
 
     formInput.value = '';
     return;
   }
   alert('Please enter a task description');
+});
+
+function addTask(task: Task): void {
+  tasks.push(task);
+  console.log(tasks);
 }
 
-taskForm?.addEventListener('submit', createTask);
+function renderTask(task: Task): void {
+  const taskElement = document.createElement('li');
+  taskElement.textContent = task.description;
+  taskListElement?.appendChild(taskElement);
+}
 
-// taskForm?.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   const taskDescription = formInput?.value;
-//   if (taskDescription) {
-//     console.log(taskDescription);
-
-//     formInput.value = '';
-//     return;
-//   }
-//   alert('Please enter a task description');
-// });
+function updateStorage(): void {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
