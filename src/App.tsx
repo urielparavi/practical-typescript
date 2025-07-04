@@ -1,9 +1,15 @@
-import Component from './starter/03-state';
+// import Component from './final/05-challenge';
+import Component from './starter/05-challenge';
 
 function App() {
   return (
     <main>
-      <Component />
+      <h2>React & Typescript</h2>
+      {/* <Component type="basic" name="susan" /> */}
+      {/* <Component type="advanced" name="anna" email="anna@gmail.com" /> */}
+
+      <Component type="basic" name="anna" />
+      <Component type="advanced" name="anna" email="anna@gmail.com" />
     </main>
   );
 }
