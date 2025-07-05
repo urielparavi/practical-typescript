@@ -6,9 +6,13 @@ import List from './List';
 function Component() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  const addTask = (task: Task): void => {
+    setTasks([...tasks, task]);
+  };
+
   return (
     <section>
-      <Form />
+      <Form addTask={addTask} />
       <List />
     </section>
   );
