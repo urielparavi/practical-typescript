@@ -13,7 +13,7 @@ type CounterState = {
 
 // Initial state for the counter slice
 const initialState: CounterState = {
-  count: 0,
+  count: 10,
   status: 'pending...',
 };
 
