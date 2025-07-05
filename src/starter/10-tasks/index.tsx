@@ -1,9 +1,16 @@
+import { useState } from 'react';
+import { type Task } from './types';
+import Form from './Form';
+import List from './List';
+
 function Component() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
   return (
-    <div>
-      <h2>React & Typescript</h2>
-      <h2>Task List</h2>
-    </div>
+    <section>
+      <Form />
+      <List />
+    </section>
   );
 }
 export default Component;
